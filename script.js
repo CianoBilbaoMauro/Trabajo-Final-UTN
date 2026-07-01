@@ -1,3 +1,5 @@
+
+
 /* =====================================
    NAVBAR
 ===================================== */
@@ -20,29 +22,32 @@ window.addEventListener("scroll", () => {
 
 
 /* =====================================
-   REVEAL ENSAMBLAJE
+   REVEAL
 ===================================== */
 
-const reveal = document.querySelector(".reveal");
+const reveals = document.querySelectorAll(".reveal");
 
-if (reveal) {
+function mostrarReveal() {
 
-    function mostrarReveal() {
+    const alturaPantalla = window.innerHeight;
+
+    reveals.forEach(reveal => {
 
         const posicion = reveal.getBoundingClientRect().top;
-
-        const alturaPantalla = window.innerHeight;
 
         if (posicion < alturaPantalla - 150) {
 
             reveal.classList.add("active");
+
         }
-    }
 
-    window.addEventListener("scroll", mostrarReveal);
+    });
 
-    mostrarReveal();
 }
+
+window.addEventListener("scroll", mostrarReveal);
+
+mostrarReveal();
 
 /* =====================================
    VIDEO
@@ -92,3 +97,77 @@ if (video && btnPlay && btnPause && videoTime) {
     });
 
 }
+
+/* =====================================
+   ROMPECABEZAS
+===================================== */
+
+const piezas = document.querySelectorAll(".imagen img");
+
+piezas.forEach(pieza => {
+
+    pieza.addEventListener("dragstart", () => {
+
+        console.log("Estoy arrastrando:", pieza.id);
+
+    });
+
+});
+
+/*=====================================
+MODO CLARO / OSCURO
+=====================================*/
+
+const btnTheme = document.getElementById("toggleTheme");
+
+const iconTheme = document.getElementById("themeIcon");
+
+const temaGuardado = localStorage.getItem("theme");
+
+if(temaGuardado === "light"){
+
+    document.body.classList.add("light");
+
+    iconTheme.src = "assets/icons/sun.svg";
+
+}else{
+
+    iconTheme.src = "assets/icons/moon-stars.svg";
+
+}
+
+btnTheme.addEventListener("click",()=>{
+
+    document.body.classList.toggle("light");
+
+    if(document.body.classList.contains("light")){
+
+        iconTheme.src = "assets/icons/sun.svg";
+
+        localStorage.setItem("theme","light");
+
+    }else{
+
+        iconTheme.src = "assets/icons/moon-stars.svg";
+
+        localStorage.setItem("theme","dark");
+
+    }
+
+}); 
+
+iconTheme.style.transform = "rotate(180deg)";
+
+setTimeout(() => {
+
+    iconTheme.style.transform = "rotate(0deg)";
+
+}, 400);
+
+/* =====================================
+   ROMPECABEZAS
+===================================== */
+
+const piezas = document.querySelectorAll(".imagen img");
+
+console.log(piezas);

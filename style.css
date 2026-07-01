@@ -25,6 +25,26 @@
 
 }
 
+body.light{
+
+    --background:#edf5fb;
+
+    --surface:#ffffff;
+
+    --surface-light:#f6f8fb;
+
+    --primary:#0d2344;
+
+    --secondary:#42546d;
+
+    --accent:#009fff;
+
+    --border-glow:rgba(0,159,255,.25);
+
+    --shadow-glow:rgba(0,159,255,.35);
+
+}
+
 
 /* =====================================
    RESET
@@ -93,7 +113,7 @@ body{
     left:0;
 
     width:100%;
-    height:150px;
+    height:130px;
 
     display:flex;
 
@@ -192,6 +212,16 @@ body{
 
     padding-top:90px;
 
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+}
+
+#hero-historia{
+
     background-image:
 
         linear-gradient(
@@ -208,11 +238,25 @@ body{
 
         url("assets/imagenes/historia-programacion.jpg");
 
-    background-size:cover;
+}
 
-    background-position:center;
+#hero-juguemos{
 
-    background-repeat:no-repeat;
+    background-image:
+
+        linear-gradient(
+
+            to top,
+
+            rgba(1,12,27,.95),
+
+            rgba(1,12,27,.75),
+
+            rgba(1,12,27,.45)
+
+        ),
+
+        url("assets/imagenes/img2.jpg");
 
 }
 
@@ -484,7 +528,7 @@ body{
 
 .video-section {
 
-    min-height: 100vh;
+    
 
     display: flex;
     flex-direction: column;
@@ -504,9 +548,9 @@ body{
 
     font-family: var(--font-title);
 
-    font-size: 2.5rem;
+    font-size: 2.2rem;
 
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
 }
 
 /* CONTENEDOR */
@@ -514,7 +558,7 @@ body{
 .video-container {
 
     width: 100%;
-    max-width: 1100px;
+    max-width: 700px;
 
     background: var(--surface);
 
@@ -610,3 +654,258 @@ body{
 
     font-size: 1.2rem;
 }
+
+/*=====================================
+FOOTER
+=====================================*/
+
+.footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:2rem 4rem;
+
+    background:var(--surface);
+
+    border-top:1px solid var(--border-glow);
+
+}
+
+.footer-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:1rem;
+
+}
+
+.footer-logo img{
+
+    width:60px;
+
+}
+
+.footer-logo h3{
+
+    color:var(--primary);
+
+    font-size:1.2rem;
+
+}
+
+.footer-texto{
+
+    flex:0.4;
+
+    text-align:center;
+
+    color:var(--secondary);
+
+    font-size:.95rem;
+
+}
+
+/* =====================================
+   TRANSICIÓN ENTRE TEMAS
+===================================== */
+
+body,
+.navbar,
+.hero,
+.informativa,
+.panel-informativo,
+.video-section,
+.video-container,
+.video-controls,
+.footer,
+.nav a,
+.logo,
+h1,
+h2,
+h3,
+p,
+button,
+img {
+
+    transition:
+        background-color .45s ease,
+        color .45s ease,
+        border-color .45s ease,
+        box-shadow .45s ease,
+        opacity .45s ease;
+}
+/* =====================================
+   JUGUEMOS
+===================================== */
+/* =====================================
+   SECCIÓN JUEGO
+===================================== */
+
+.juego{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:8rem;
+
+    background:var(--background);
+
+}
+
+/* TÍTULO */
+
+.titulo-juego{
+
+    color:var(--accent);
+
+    font-family:var(--font-title);
+
+    font-size:2.5rem;
+
+    text-align:center;
+
+    margin-bottom:4rem;
+
+}
+
+/* NUEVO PANEL */
+
+.panel-juego{
+
+    width:100%;
+
+    max-width:1200px;
+
+    padding:2.5rem;
+
+    background:var(--surface);
+
+    border:1px solid var(--border-glow);
+
+    border-radius:10px;
+
+    transition:
+        border-color .3s ease,
+        box-shadow .3s ease;
+
+}
+
+.panel-juego:hover{
+
+    border-color:var(--accent);
+
+    box-shadow:0 0 20px var(--shadow-glow);
+
+}
+
+/* CONTENEDOR */
+
+.contenedor-juego{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+}
+
+.imagen{
+
+    width:240px;
+
+}
+
+.zona-armado{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.casilleros{
+
+    display:flex;
+
+    gap:1rem;
+
+    margin-bottom:2rem;
+
+}
+
+.casillero{
+
+    width:120px;
+
+    height:120px;
+
+    border:3px dashed var(--accent);
+
+    border-radius:8px;
+
+}
+/* =====================================
+   BOTON MODO CLARO / OSCURO
+===================================== */
+
+.theme-toggle{
+
+    position:fixed;
+
+    right:30px;
+
+    bottom:30px;
+
+    width:60px;
+    height:60px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:var(--surface);
+
+    border:1px solid var(--accent);
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    z-index:2000;
+
+    transition:.3s ease;
+
+}
+
+.theme-toggle:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 0 20px var(--shadow-glow);
+
+}
+
+.theme-toggle img{
+
+    width:28px;
+
+}
+

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Trabajo Final</title>
+    <link rel="icon" href="assets/icons/icon-code.png">
+
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+            LOGO
+        </div>
+
+        <nav class="nav">
+            <a href="index.html">HISTORIA</a>
+            <a href="juguemos.html" class="active">JUGUEMOS</a>
+        </nav>
+
+    </header>
+
+    <section class="hero" id="hero-juguemos">
+
+        <h1>
+            JUGUEMOS UN POCO
+        </h1>
+
+    </section>
+
+    <section class="juego">
+
+        <h2 class="titulo-juego">
+            Armemos el rompecabezas y veamos qué imagen es...
+        </h2>
+
+        <div class="panel-juego">
+
+            <div class="contenedor-juego">
+
+                <!-- Imagen izquierda -->
+                <div class="imagen izquierda">
+
+                    <img id="pieza1" src="assets/imagenes/Rompe1.png" alt="Puzzle 1" draggable="true">
+
+                </div>
+
+                <!-- Zona central -->
+                <div class="zona-armado">
+
+                    <div class="casilleros">
+
+                        <div class="casillero" id="slot1"></div>
+                        <div class="casillero" id="slot2"></div>
+                        <div class="casillero" id="slot3"></div>
+
+                    </div>
+
+                    <!-- Imagen inferior -->
+                    <div class="imagen inferior">
+
+                        <img id="pieza2" src="assets/imagenes/rompe2.png" alt="Puzzle 2" draggable="true">
+
+                    </div>
+
+                </div>
+
+                <!-- Imagen derecha -->
+                <div class="imagen derecha">
+
+                    <img id="pieza3" src="assets/imagenes/Rompe3.png" alt="Puzzle 3" draggable="true">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer class="footer">
+
+        <div class="footer-logo">
+
+            <img src="assets/icons/icon-code.png" alt="Logo">
+
+            <div>
+
+                <h3>Programación</h3>
+                <h3>e Historia</h3>
+
+            </div>
+
+        </div>
+
+        <p class="footer-texto">
+            Sitio con fines educativos · Trabajo Final UTN 2025
+        </p>
+
+    </footer>
+
+    <button id="toggleTheme" class="theme-toggle">
+
+        <img id="themeIcon" src="assets/icons/moon.svg" alt="Modo oscuro">
+
+    </button>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
