@@ -102,72 +102,93 @@ if (video && btnPlay && btnPause && videoTime) {
    ROMPECABEZAS
 ===================================== */
 
+let piezaSeleccionada = null;
+
 const piezas = document.querySelectorAll(".imagen img");
+
+console.log(piezas.length);
 
 piezas.forEach(pieza => {
 
     pieza.addEventListener("dragstart", () => {
 
-        console.log("Estoy arrastrando:", pieza.id);
+        piezaSeleccionada = pieza;
+
+        console.log("Arrastrando:", piezaSeleccionada.id);
 
     });
 
 });
+
+const casilleros = document.querySelectorAll(".casillero");
+
+casilleros.forEach(casillero => {
+
+    casillero.addEventListener("dragover", (e) => {
+
+        e.preventDefault();
+
+    });
+
+    casillero.addEventListener("drop", () => {
+
+        if (casillero.children.length === 0) {
+
+            casillero.appendChild(piezaSeleccionada);
+
+        }
+
+    });
+
+});
+
 
 /*=====================================
 MODO CLARO / OSCURO
 =====================================*/
 
 const btnTheme = document.getElementById("toggleTheme");
-
 const iconTheme = document.getElementById("themeIcon");
 
-const temaGuardado = localStorage.getItem("theme");
+if (btnTheme && iconTheme) {
 
-if(temaGuardado === "light"){
+    const temaGuardado = localStorage.getItem("theme");
 
-    document.body.classList.add("light");
+    if (temaGuardado === "light") {
 
-    iconTheme.src = "assets/icons/sun.svg";
-
-}else{
-
-    iconTheme.src = "assets/icons/moon-stars.svg";
-
-}
-
-btnTheme.addEventListener("click",()=>{
-
-    document.body.classList.toggle("light");
-
-    if(document.body.classList.contains("light")){
-
+        document.body.classList.add("light");
         iconTheme.src = "assets/icons/sun.svg";
 
-        localStorage.setItem("theme","light");
-
-    }else{
+    } else {
 
         iconTheme.src = "assets/icons/moon-stars.svg";
 
-        localStorage.setItem("theme","dark");
-
     }
 
-}); 
+    btnTheme.addEventListener("click", () => {
 
-iconTheme.style.transform = "rotate(180deg)";
+        document.body.classList.toggle("light");
 
-setTimeout(() => {
+        if (document.body.classList.contains("light")) {
 
-    iconTheme.style.transform = "rotate(0deg)";
+            iconTheme.src = "assets/icons/sun.svg";
+            localStorage.setItem("theme", "light");
 
-}, 400);
+        } else {
 
-/* =====================================
-   ROMPECABEZAS
-===================================== */
+            iconTheme.src = "assets/icons/moon-stars.svg";
+            localStorage.setItem("theme", "dark");
 
-const piezas = document.querySelectorAll(".imagen img");
+        }
 
-console.log(piezas);
+    });
+
+    iconTheme.style.transform = "rotate(180deg)";
+
+    setTimeout(() => {
+
+        iconTheme.style.transform = "rotate(0deg)";
+
+    }, 400);
+
+}
